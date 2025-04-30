@@ -83,3 +83,11 @@ npm install --save-dev eslint-plugin-react
     - łamie linie zgodnie z max długością,
     - poprawia cudzysłowy, średniki itp.
 
+## Zaawansowane opcje `Priettier`:
+
+- szerokość linii (`printWidth`),
+- styl cudzysłowów (`singleQuote`),
+- wcięcia (`tabWidth`, `useTabs`),
+- średniki (`semi`),
+- styl nawiasów (`bracketSpacing`),
+- sposób formatowania funkcji strzałkowych (`arrowParens`).
