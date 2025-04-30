@@ -9,7 +9,7 @@ npm init -y
 npm install --save-dev prettier
 ```
 
-Utwórz plik .prettierrc z podstawową konfiguracją:
+Utwórz plik `.prettierrc` z podstawową konfiguracją:
 
 ```json
 {
@@ -30,4 +30,56 @@ Do pliku `package.json` dodaj następujący skrypt:
 ```json
 npm run format
 ```
+
+## Konfiguracja `ESlint` z `Priettier`:
+
+W projekcie skonfigurowano narzędzia ESLint i Prettier tak, aby współpracowały bez konfliktów.
+
+Zainstalowane paczki (`devDependencies`):
+
+```bash
+npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-react
+```
+
+Skrypty w `package.json`:
+
+```json
+"scripts": {
+  "lint": "eslint .",
+  "format": "prettier --write ."
+}
+```
+
+### Rozwiązywanie problemów:
+
+Podczas uruchamiania `npm run lint` pojawiał się błąd:
+
+```bash
+TypeError: Plugin "plugin:react" not found.
+```
+Rozwiązanie: 
+
+brakowało paczki `eslint-plugin-react`. Błąd naprawiono komendą:
+
+```bash
+npm install --save-dev eslint-plugin-react
+```
+
+### Walidacja:
+
+- `npm run lint` — uruchamia `ESLint` na wszystkich plikach w projekcie
+- `npm run format` — formatuje pliki zgodnie z zasadami `Prettier`'a
+- `npx eslint` — alternatywna ręczna kontrola `ESLint`
+
+### `Linter` a `formatter`:
+
+- Linter analizuje kod pod kątem:
+    - błędów składniowych i logicznych (np. nieużywane zmienne, błędna kolejność importów),
+    - zgodności ze stylem (np. pojedynczy vs podwójny cudzysłów, spacje vs taby),
+    - może też wymuszać dobre praktyki programistyczne (np. nie używaj any w TypeScript).
+- Formatter automatycznie formatuje kod:
+    - dodaje/usuwa przecinki,
+    - ustawia odpowiednie wcięcia i odstępy,
+    - łamie linie zgodnie z max długością,
+    - poprawia cudzysłowy, średniki itp.
 
