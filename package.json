@@ -1,0 +1,33 @@
+{
+  "name": "raccoonreact",
+  "version": "1.0.0",
+  "description": "W katalogu projektu uruchom poniższe polecenia:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WiolaWysopal/RaccoonReact.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/WiolaWysopal/RaccoonReact/issues"
+  },
+  "homepage": "https://github.com/WiolaWysopal/RaccoonReact#readme",
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
+    "prettier": "^3.5.3"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,json,css,md}": [
+      "prettier --write"
+    ]
+  }
+}
