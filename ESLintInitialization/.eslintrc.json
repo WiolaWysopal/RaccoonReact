@@ -3,8 +3,8 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["eslint:recommended"],
-  "plugins": ["js"],
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "plugins": ["prettier"],
   "rules": {
     "semi": ["error", "always"],
     "quotes": ["error", "single", { "avoidEscape": true }],
@@ -15,6 +15,7 @@
     "no-alert": "warn",
     "prefer-const": "error",
     "no-var": "error",
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "prettier/prettier": "error"
   }
 }

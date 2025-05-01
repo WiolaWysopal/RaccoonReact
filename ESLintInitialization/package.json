@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,8 @@
   "devDependencies": {
     "@eslint/js": "^9.25.1",
     "eslint": "^9.25.1",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.2.6",
     "globals": "^16.0.0",
     "prettier": "^3.5.3"
   }
