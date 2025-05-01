@@ -57,7 +57,8 @@ Podczas uruchamiania `npm run lint` pojawiał się błąd:
 ```bash
 TypeError: Plugin "plugin:react" not found.
 ```
-Rozwiązanie: 
+
+Rozwiązanie:
 
 brakowało paczki `eslint-plugin-react`. Błąd naprawiono komendą:
 
@@ -74,14 +75,14 @@ npm install --save-dev eslint-plugin-react
 ### `Linter` a `formatter`:
 
 - Linter analizuje kod pod kątem:
-    - błędów składniowych i logicznych (np. nieużywane zmienne, błędna kolejność importów),
-    - zgodności ze stylem (np. pojedynczy vs podwójny cudzysłów, spacje vs taby),
-    - może też wymuszać dobre praktyki programistyczne (np. nie używaj any w TypeScript).
+  - błędów składniowych i logicznych (np. nieużywane zmienne, błędna kolejność importów),
+  - zgodności ze stylem (np. pojedynczy vs podwójny cudzysłów, spacje vs taby),
+  - może też wymuszać dobre praktyki programistyczne (np. nie używaj any w TypeScript).
 - Formatter automatycznie formatuje kod:
-    - dodaje/usuwa przecinki,
-    - ustawia odpowiednie wcięcia i odstępy,
-    - łamie linie zgodnie z max długością,
-    - poprawia cudzysłowy, średniki itp.
+  - dodaje/usuwa przecinki,
+  - ustawia odpowiednie wcięcia i odstępy,
+  - łamie linie zgodnie z max długością,
+  - poprawia cudzysłowy, średniki itp.
 
 ## Zaawansowane opcje `Priettier`:
 

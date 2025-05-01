@@ -18,11 +18,16 @@ greet("Alice");
 const longString =
   "This is a very long string that definitely exceeds the eighty characters printWidth limit set in the Prettier configuration file so it should be wrapped.";
 
+console.log(longString);
+
 const obj = { foo: 1, bar: 2, baz: 3 };
 
 const arrowFunc = (x) => {
   return x * x;
 };
+
+console.log(obj);
+console.log(arrowFunc);
 
 function messyFunction(x, y) {
   console.log(x + y);
