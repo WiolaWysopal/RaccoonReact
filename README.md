@@ -92,3 +92,20 @@ npm install --save-dev eslint-plugin-react
 - średniki (`semi`),
 - styl nawiasów (`bracketSpacing`),
 - sposób formatowania funkcji strzałkowych (`arrowParens`).
+
+## `Parcel`:
+
+`Parcel` to narzędzie typu bundler, które automatycznie łączy, przetwarza i optymalizuje pliki aplikacji webowej (takie jak JavaScript, CSS, HTML czy obrazy), tworząc gotowe do użycia paczki wynikowe. Jest szybki, łatwy w konfiguracji, ponieważ nie wymaga plików konfiguracyjnych, a także obsługuje funkcje takie jak automatyczne ładowanie modułów, kodowanie źródłowe czy kompresję zasobów. Dzięki wbudowanej funkcji serwera deweloperskiego umożliwia szybkie testowanie aplikacji na lokalnym serwerze, co czyni go wygodnym narzędziem do tworzenia nowoczesnych aplikacji internetowych.
+
+### Instalacja `Parcel`:
+
+```bash
+npm install --save-dev parcel
+```
+
+### Tworzenie plików projektu:
+
+Aby `Parcel` mógł działać, niezbędne są odpowiednie pliki wejściowe:
+
+- `index.html` - główna strona aplikacji, którą `Parcel` będzie serwował; powinien zawierać odpowiednią strukturę HTML oraz link do pliku JavaScript.
+- `index.js` - zawiera kod JavaScript, który `Parcel` zbundluje (połączy wiele plików (np. JavaScript, CSS, obrazy) w jeden lub kilka zoptymalizowanych plików wynikowych).
