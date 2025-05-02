@@ -109,3 +109,13 @@ Aby `Parcel` mógł działać, niezbędne są odpowiednie pliki wejściowe:
 
 - `index.html` - główna strona aplikacji, którą `Parcel` będzie serwował; powinien zawierać odpowiednią strukturę HTML oraz link do pliku JavaScript.
 - `index.js` - zawiera kod JavaScript, który `Parcel` zbundluje (połączy wiele plików (np. JavaScript, CSS, obrazy) w jeden lub kilka zoptymalizowanych plików wynikowych).
+
+## `Hot Module Replacement`
+
+`Hot Module Replacement` (`HMR`) to funkcja narzędzi takich jak `Parcel`, która umożliwia automatyczne podmienianie zmodyfikowanych modułów (np. JavaScript lub CSS) w działającej aplikacji bez przeładowywania całej strony, co pozwala zachować jej stan (np. dane w formularzach) i znacznie przyspiesza proces programowania, ponieważ zmiany widoczne są od razu po zapisaniu pliku.
+
+`Parcel` ma `HMR` wbudowany automatycznie i należy go uruchomić:
+
+```bash
+npx parcel index.html
+```
