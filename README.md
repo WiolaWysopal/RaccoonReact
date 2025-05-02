@@ -119,3 +119,57 @@ Aby `Parcel` mógł działać, niezbędne są odpowiednie pliki wejściowe:
 ```bash
 npx parcel index.html
 ```
+
+## Tworzenie własnej wtyczki
+
+Aby rozszerzyć `Parcel` o własną funkcjonalność, można stworzyć i podpiąć własną wtyczkę (plugin). Poniżej opis krok po kroku:
+
+1. Utworzenie folderu na wtyczkę
+
+W katalogu głównym projektu utwórz folder na wtyczki:
+
+```bash
+my-parcel-plugins/
+```
+
+2. Utworzenie pliku z wtyczką
+
+W folderze `my-parcel-plugins` dodaj plik MyTransformer.js z prostą definicją wtyczki. Przykład:
+
+```js
+const { Transformer } = require("@parcel/plugin");
+
+module.exports = new Transformer({
+  async transform({ asset }) {
+    console.log("Wtyczka działa dla pliku:", asset.filePath);
+    return [asset];
+  },
+});
+```
+
+3. Konfiguracja `.parcelrc`:
+
+W katalogu głównym dodaj plik `.parcelrc` (jeśli jeszcze go nie ma) i zarejestruj swoją wtyczkę:
+
+```js
+{
+  "extends": "@parcel/config-default",
+  "transformers": {
+    "*.js": ["...", "./my-parcel-plugins/MyTransformer.js"]
+  }
+}
+```
+
+4. Uruchomienie i testowanie
+
+Uruchom aplikację:
+
+```bash
+npm start
+```
+
+W terminalu powinien pojawić się komunikat:
+
+```bash
+Wtyczka działa dla pliku: ./index.js
+```

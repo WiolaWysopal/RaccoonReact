@@ -1,0 +1,23 @@
+{
+  "name": "parcelplugins",
+  "version": "1.0.0",
+  "description": "Projekt Parcel z własną wtyczką",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "parcel",
+    "plugin",
+    "hmr",
+    "dev"
+  ],
+  "author": "Twoje Imię",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@parcel/plugin": "^2.14.4",
+    "parcel": "^2.14.4"
+  }
+}
