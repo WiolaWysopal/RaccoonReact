@@ -1,2 +1,2 @@
-const a = 1;
-console.log(a);
+const myVariable = 1;
+console.log(myVariable);

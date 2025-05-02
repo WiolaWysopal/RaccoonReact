@@ -1,7 +1,7 @@
 {
   "name": "raccoonreact",
   "version": "1.0.0",
-  "description": "W katalogu projektu uruchom poniższe polecenia:",
+  "description": "Simple experiments with React",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -31,5 +31,14 @@
     "**/*.{js,jsx,ts,tsx,json,css,md}": [
       "prettier --write"
     ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "plugins": [
+      "local"
+    ],
+    "rules": {
+      "local/camelcase-variable-names": "error"
+    }
   }
 }

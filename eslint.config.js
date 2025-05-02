@@ -1,4 +1,5 @@
-// eslint.config.js (flat config, z languageOptions)
+const camelcaseVariableNames = require("./eslint-rules/camelcase-variable-names");
+
 module.exports = [
   {
     files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
@@ -8,8 +9,15 @@ module.exports = [
         sourceType: "module",
       },
     },
+    plugins: {
+      local: {
+        rules: {
+          "camelcase-variable-names": camelcaseVariableNames,
+        },
+      },
+    },
     rules: {
-      // Twoje zasady ESLint tutaj
+      "local/camelcase-variable-names": "error",
       "no-unused-vars": "warn",
       semi: ["error", "always"],
     },

@@ -20,13 +20,13 @@ const longString =
 
 console.log(longString);
 
-const obj = { foo: 1, bar: 2, baz: 3 };
+const firstObj = { foo: 1, bar: 2, baz: 3 };
 
 const arrowFunc = (x) => {
   return x * x;
 };
 
-console.log(obj);
+console.log(firstObj);
 console.log(arrowFunc);
 
 function messyFunction(x, y) {

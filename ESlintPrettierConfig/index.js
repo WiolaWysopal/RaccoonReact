@@ -3,9 +3,9 @@ function helloWorld() {
 }
 helloWorld();
 
-let a = 2;
-let b = 4;
-function add(a, b) {
-  console.log(a, "+", b, "=", a + b);
+let firstVariable = 2;
+let secondVariable = 4;
+function add(firstVariable, b) {
+  console.log(firstVariable, "+", b, "=", firstVariable + b);
 }
-add(a, b);
+add(firstVariable, secondVariable);
