@@ -191,3 +191,21 @@ npm run bild
 Aby zapewnić kompatybilność aplikacji z przeglądarkami, które nie wspierają nowoczesnych funkcji JavaScript (np. funkcji strzałkowych, `let/const`, `template literals`), użyto w projekcie pluginu `@rollup/plugin-babel`. Plugin ten integruje narzędzie `Babel` z bundlerem `Rollup`, umożliwiając automatyczne przekształcanie kodu `ES6+` do wersji `ES5`, która działa w starszym środowisku uruchomieniowym.
 
 W konfiguracji zastosowano preset `@babel/preset-env`, który dynamicznie dobiera odpowiednie transformacje na podstawie użytych funkcji. Dzięki temu możliwe jest pisanie nowoczesnego, czytelnego kodu w plikach źródłowych, a `Rollup` i `Babel` zajmują się przygotowaniem wersji produkcyjnej — zgodnej z szerokim zakresem przeglądarek i środowisk.
+
+## `Rollup Tree Shaking`:
+
+`Rollup` automatycznie wspiera `tree shaking`, czyli proces usuwania nieużywanego kodu z końcowego bundla. Działa to dzięki analizie statycznej modułów `ECMAScript` (`import/export`) — jeśli jakaś funkcja, zmienna lub klasa nie jest nigdzie używana, `Rollup` jej nie dołącza do pliku wynikowego. Dzięki temu finalny kod ładowany w przeglądarce jest mniejszy, szybszy i bardziej zoptymalizowany.
+
+Aby `tree shaking` działał skutecznie, kod źródłowy powinien być modularny i unikać dynamicznych `require()` czy efektów ubocznych wykonywanych globalnie.
+
+### Uruchamianie:
+
+Ponieważ `Tree shaking` działa automatycznie, wystarczy po prostu uruchomić projekt poleceniem:
+
+```bash
+npm run build
+```
+
+### Opis działania:
+
+Załóżmy, że w projekcie utworzono kilka modułów, z których tylko część została użyta w pliku głównym. Po zbudowaniu (polecenie: `npm run build`) projektu można zauważyć, że nieużywane funkcje nie trafiły do bundla (pliku wynikowego w folderze `dist`), co potwierdza skuteczność tej optymalizacji.
