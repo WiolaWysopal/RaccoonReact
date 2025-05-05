@@ -209,3 +209,53 @@ npm run build
 ### Opis działania:
 
 Załóżmy, że w projekcie utworzono kilka modułów, z których tylko część została użyta w pliku głównym. Po zbudowaniu (polecenie: `npm run build`) projektu można zauważyć, że nieużywane funkcje nie trafiły do bundla (pliku wynikowego w folderze `dist`), co potwierdza skuteczność tej optymalizacji.
+
+## Tworzenie własnych wtyczek `Rollup`
+
+Aby stworzyć własną wtyczkę do `Rollupa`, należy skorzystać z interfejsu wtyczki `Rollup`, który umożliwia manipulowanie różnymi etapami procesu bundlowania. Wtyczki w `Rollupie` działają na zasadzie hooków, które są wywoływane w trakcie różnych faz procesu bundlowania. Oto, jak można stworzyć własną wtyczkę:
+
+### 1. Struktura wtyczki:
+
+Wtyczka jest funkcją, która zwraca obiekt z jednym lub wieloma `hookami`. Najczęściej używanymi hookami są:
+
+- `load` – odpowiada za ładowanie plików (np. przetwarzanie plików z dysku).
+
+- `transform` – odpowiada za modyfikowanie kodu źródłowego przed jego zapisaniem do bundla.
+
+- `generateBundle` – pozwala na modyfikowanie końcowego bundla.
+
+### 2. Przykład wtyczki:
+
+Możesz stworzyć wtyczkę, która loguje ścieżkę aktualnie przetwarzanego pliku, korzystając z hooka `load`. `Rollup` automatycznie przekazuje ścieżkę pliku (argument `id` - ścieżkę tę sam pobiera) do wtyczki, co pozwala na łatwe logowanie nazw plików. Przykład:
+
+```js
+export default function logModulesPlugin() {
+  return {
+    name: "log-modules-plugin", // Nazwa wtyczki
+    load(id) {
+      console.log("Przetwarzam moduł:", id); // Logowanie ścieżki pliku
+    },
+  };
+}
+```
+
+### 3. Zastosowanie wtyczki:
+
+Wtyczka powinna być dodana do konfiguracji `Rollupa` w sekcji `plugins`. Przykład konfiguracji:
+
+```js
+import logModulesPlugin from "./logModulesPlugin.js";
+
+export default {
+  input: "src/main.js",
+  output: {
+    file: "dist/bundle.js",
+    format: "iife",
+  },
+  plugins: [logModulesPlugin()],
+};
+```
+
+### 4. Zasady działania:
+
+Kiedy `Rollup` przetwarza moduły w projekcie, wtyczka będzie wywoływana podczas procesu ładowania plików, a hook `load` otrzyma ścieżkę do każdego przetwarzanego modułu jako `id`. Dzięki temu można wykonać różne operacje, takie jak logowanie, modyfikacja zawartości plików czy też sprawdzanie ich stanu.
