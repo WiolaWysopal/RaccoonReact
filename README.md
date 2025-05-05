@@ -185,3 +185,9 @@ Wtyczka działa dla pliku: ./index.js
 ```bash
 npm run bild
 ```
+
+## Plugin `Babel`:
+
+Aby zapewnić kompatybilność aplikacji z przeglądarkami, które nie wspierają nowoczesnych funkcji JavaScript (np. funkcji strzałkowych, `let/const`, `template literals`), użyto w projekcie pluginu `@rollup/plugin-babel`. Plugin ten integruje narzędzie `Babel` z bundlerem `Rollup`, umożliwiając automatyczne przekształcanie kodu `ES6+` do wersji `ES5`, która działa w starszym środowisku uruchomieniowym.
+
+W konfiguracji zastosowano preset `@babel/preset-env`, który dynamicznie dobiera odpowiednie transformacje na podstawie użytych funkcji. Dzięki temu możliwe jest pisanie nowoczesnego, czytelnego kodu w plikach źródłowych, a `Rollup` i `Babel` zajmują się przygotowaniem wersji produkcyjnej — zgodnej z szerokim zakresem przeglądarek i środowisk.
