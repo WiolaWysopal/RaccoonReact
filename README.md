@@ -173,3 +173,15 @@ W terminalu powinien pojawić się komunikat:
 ```bash
 Wtyczka działa dla pliku: ./index.js
 ```
+
+## `Rollup`:
+
+`Rollup` to narzędzie służące do bundlowania kodu JavaScript – czyli łączenia wielu plików źródłowych w jeden plik wynikowy. Ułatwia to zarządzanie kodem i jego wdrażanie, szczególnie w projektach frontendowych, gdzie przeglądarka powinna otrzymać jak najmniej i jak najprostszych plików do załadowania. `Rollup` wspiera moduły ES6 (`import/export`) i umożliwia optymalizację kodu, np. przez usuwanie nieużywanych fragmentów (`tree shaking`).
+
+`Bundle` to jeden scalony plik JavaScript, który zawiera kod z wielu źródeł. Zamiast ładować wiele osobnych plików `.js`, aplikacja może korzystać z jednego gotowego pliku, co przyspiesza działanie i upraszcza strukturę projektu.
+
+### Uruchomienie budowania w środowisku `npm`:
+
+```bash
+npm run bild
+```
