@@ -259,3 +259,26 @@ export default {
 ### 4. Zasady działania:
 
 Kiedy `Rollup` przetwarza moduły w projekcie, wtyczka będzie wywoływana podczas procesu ładowania plików, a hook `load` otrzyma ścieżkę do każdego przetwarzanego modułu jako `id`. Dzięki temu można wykonać różne operacje, takie jak logowanie, modyfikacja zawartości plików czy też sprawdzanie ich stanu.
+
+## `Webpack`:
+
+`Webpack` to modułowy bundler JavaScript, który umożliwia łączenie wielu plików i modułów w jeden, zoptymalizowany plik wynikowy. Ułatwia zarządzanie zależnościami w projekcie oraz automatyzuje proces budowania aplikacji webowych.
+
+### Instalacja:
+
+```bash
+npm install --save-dev webpack webpack-cli
+```
+
+- `webpack` – główna biblioteka bundlująca
+- `webpack-cli` – interfejs wiersza poleceń do obsługi webpacka
+
+Konfiguracja projektu znajduje się w pliku `webpack.config.js` - zawiera informacje o punkcie wejścia (`entry`), wyjściu (`output`) i trybie działania (`mode`).
+
+### Skrypt w `package.json` do uruchamiania `Webpacka`:
+
+```json
+"scripts": {
+  "build": "webpack"
+}
+```
