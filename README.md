@@ -306,3 +306,41 @@ npm run start
 ```
 
 **WAŻNE: W `package.json` musi być skrypt start: `"webpack serve"`**
+
+## Integracja `Babel` z `Webpackiem`
+
+Aby umożliwić transpilację nowoczesnego kodu JavaScript (ES6+) do wersji wspieranej przez starsze przeglądarki, należy zintegrować plugin `Babel` z `Webpackiem`.
+
+### Konfiguracja:
+
+W tym celu należy przede wszystkim utworzyć plk `.babelrc`:
+
+```json
+{
+  "presets": ["@babel/preset-env"]
+}
+```
+
+Następnie do pliku `webpack.config.js` lub `webpack.config.mjs` należy dodać następującą regułę:
+
+```js
+module: {
+  rules: [
+    {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: "babel-loader",
+      },
+    },
+  ];
+}
+```
+
+### Test:
+
+```
+npm run build
+```
+
+Jeśli kompilacja przez `webpack` działa bez błędów, w konsoli pojawi się komunikat `compiled successfully`.
