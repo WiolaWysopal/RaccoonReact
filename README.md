@@ -282,3 +282,27 @@ Konfiguracja projektu znajduje się w pliku `webpack.config.js` - zawiera inform
   "build": "webpack"
 }
 ```
+
+## `Webpack-Dev-Server`
+
+`Webpack Dev Server` to lokalny serwer deweloperski, który automatycznie odświeża stronę w przeglądarce po każdej zmianie kodu źródłowego. Dzięki temu nie trzeba za każdym razem ręcznie budować projektu ani odświeżać strony — serwer robi to za nas w tle.
+
+### Zalety:
+
+- Automatyczne odświeżanie strony po zmianach (`live reloading`)
+- Szybsze testowanie zmian w kodzie JavaScript/HTML/CSS
+- Działa lokalnie bez konieczności serwowania plików z zewnątrz
+
+### Instalacja:
+
+```bash
+npm install --save-dev webpack-dev-server
+```
+
+### Uruchomienie servera:
+
+```bash
+npm run start
+```
+
+**WAŻNE: W `package.json` musi być skrypt start: `"webpack serve"`**
