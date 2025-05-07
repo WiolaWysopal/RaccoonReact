@@ -344,3 +344,33 @@ npm run build
 ```
 
 Jeśli kompilacja przez `webpack` działa bez błędów, w konsoli pojawi się komunikat `compiled successfully`.
+
+## ESbuild
+
+`ESBuild` to superszybki bundler i minifier JavaScript/TypeScript, który pozwala szybko łączyć pliki i tworzyć zoptymalizowaną wersję kodu.
+
+### Instalacja:
+
+```bash
+npm install --save-dev esbuild
+```
+
+Przykład użycia do zbudowania pliku `index.js`:
+
+```bash
+npx esbuild index.js --bundle --outfile=bundle.js
+```
+
+Alternatywnie można też dodać skrypt do `package.json`:
+
+```json
+"scripts": {
+  "build": "esbuild index.js --bundle --outfile=bundle.js"
+}
+```
+
+### Uruchamianie:
+
+```bash
+npm run build
+```
