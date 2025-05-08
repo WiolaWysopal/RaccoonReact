@@ -396,7 +396,7 @@ vite-project/
 
 ### Kluczowe mechanizmy działania
 
-- Vite używa natywnych ES Modules → szybki start aplikacji
+- Vite używa natywnych `ES Modules` → szybki start aplikacji
 - `npm run dev` uruchamia lokalny serwer z automatycznym odświeżaniem (`HMR`)
 - Nie trzeba ustawiać ręcznie `webpacka` – Vite działa „zero-config”
 - `index.html` jest bezpośrednio używany jako szablon, z dynamicznym wstrzykiwaniem skryptów przez Vite
