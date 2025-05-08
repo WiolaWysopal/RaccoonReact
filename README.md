@@ -400,3 +400,53 @@ vite-project/
 - `npm run dev` uruchamia lokalny serwer z automatycznym odświeżaniem (`HMR`)
 - Nie trzeba ustawiać ręcznie `webpacka` – Vite działa „zero-config”
 - `index.html` jest bezpośrednio używany jako szablon, z dynamicznym wstrzykiwaniem skryptów przez Vite
+
+### `Aliasy` i `pluginy`
+
+#### Aliasy
+
+Alias w Vite to sposób na skrócenie i uproszczenie ścieżek do plików w projekcie. Dzięki aliasom, zamiast podawać pełne ścieżki, takie jak `src/assets/logo.svg`, można używać krótkich i łatwiejszych do zarządzania ścieżek, jak `@/assets/logo.svg`.
+
+Alias definiuje się w pliku konfiguracyjnym `vite.config.js` za pomocą opcji `resolve.alias`. Na przykład, aby ustawić alias `@` do folderu `src`, można użyć takiej konfiguracji (`vite.config.js`):
+
+```js
+import path from "path";
+
+export default {
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
+  },
+};
+```
+
+Wówczas w plikach projektu można używać aliasu `@` do odwołania się do folderu `src`. Przykład:
+
+```js
+import reactLogo from "@/assets/react.svg";
+```
+
+#### Pluginy
+
+Pluginy w Vite to dodatkowe moduły, które rozszerzają funkcjonalność bundlera, umożliwiając integrację z różnymi technologiami i frameworkami, jak React, Vue, TypeScript, czy autoloading komponentów. Pluginy są dodawane do pliku konfiguracyjnego `vite.config.js`.
+
+Przykład:
+
+Dodawanie pluginu `react`
+
+**1. Instalacja:**
+
+```bash
+npm install --save-dev @vitejs/plugin-react
+```
+
+**2. Dodanie do pliku konfiguracyjnego (`vite.config.js`):**
+
+```js
+import react from "@vitejs/plugin-react";
+
+export default {
+  plugins: [react()],
+};
+```
