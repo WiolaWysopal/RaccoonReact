@@ -450,3 +450,25 @@ export default {
   plugins: [react()],
 };
 ```
+
+## Optymalizacja i wdrożenie aplikacji Vite
+
+Warto, aby projekt został zoptymalizowany pod kątem wydajności i gotowości do wdrożenia produkcyjnego.
+
+### Proces optymalizacji
+
+- Minifikacja kodu - wykorzystano `esbuild`, domyślny i szybki minifier w Vite.
+- Podział na `chunki` (`code splitting`) - zależności z `node_modules` wydzielane są do osobnego pliku `vendor.js`, co poprawia cache’owanie.
+- `Lazy loading` - komponenty ładują się dynamicznie tylko wtedy, gdy są potrzebne (z użyciem `React.lazy` i `Suspense`), co skraca czas początkowego ładowania.
+
+### Budowanie aplikacji
+
+```bash
+npm run build
+```
+
+Wygenerowane pliki znajdują się w katalogu `dist/`.
+
+### `vendor`
+
+`vendor` to umowna nazwa `chunku` (porcji kodu), do którego Vite (i narzędzia bundlujące jak `Rollup` czy `Webpack`) wydzielają zewnętrzne biblioteki — takie jak `React`, `ReactDOM`, `lodash` itp. — czyli wszystko, co pochodzi z folderu `node_modules`.

@@ -1,10 +1,14 @@
-import { useState } from "react";
-import reactLogo from "@/assets/react.svg"; // używając aliasu
+import { useState, lazy, Suspense } from "react";
+import reactLogo from "@/assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
+// lazy import
+const LazyComponent = lazy(() => import("@/components/LazyComponent"));
+
 function App() {
   const [count, setCount] = useState(0);
+  const [showLazy, setShowLazy] = useState(false);
 
   return (
     <>
@@ -17,16 +21,20 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      {/* Add <p></p> to see how HMR works */}
-      <p className="read-the-docs">!!! TEST HMR !!!</p>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        <button onClick={() => setShowLazy(true)}>Show Lazy Component</button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
+      {showLazy && (
+        <Suspense fallback={<p>Component loading...</p>}>
+          <LazyComponent />
+        </Suspense>
+      )}
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
