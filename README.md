@@ -374,3 +374,29 @@ Alternatywnie można też dodać skrypt do `package.json`:
 ```bash
 npm run build
 ```
+
+## `Vite`
+
+`Vite` to szybki bundler i `dev server` stworzony z myślą o projektach frontendowych. Wykorzystuje natywne moduły `ES` (`ESM`) w przeglądarce, dzięki czemu zapewnia błyskawiczny start aplikacji i szybkie odświeżanie podczas developmentu (`HMR`). Podczas budowania produkcyjnego używa `Rollupa`, ale w czasie pracy deweloperskiej działa inaczej niż klasyczne bundlery. Jest alternatywą dla `Webpacka` i `Rollupa`, oferując prostszą konfigurację i dużo lepszą wydajność w fazie developmentu.
+
+### Podstawowa zawartość
+
+```pgsql
+vite-project/
+├── index.html            <-- punkt wejścia aplikacji
+├── package.json          <-- konfiguracja projektu i zależności
+├── vite.config.js        <-- opcjonalna konfiguracja Vite
+├── public/               <-- statyczne zasoby serwowane bezpośrednio (np. favicony, obrazy)
+└── src/
+    ├── App.jsx           <-- główny komponent Reacta
+    ├── main.jsx          <-- punkt wejścia JS do aplikacji
+    └── assets/           <-- folder na obrazy, style i inne zasoby importowane do kodu
+
+```
+
+### Kluczowe mechanizmy działania
+
+- Vite używa natywnych ES Modules → szybki start aplikacji
+- `npm run dev` uruchamia lokalny serwer z automatycznym odświeżaniem (`HMR`)
+- Nie trzeba ustawiać ręcznie `webpacka` – Vite działa „zero-config”
+- `index.html` jest bezpośrednio używany jako szablon, z dynamicznym wstrzykiwaniem skryptów przez Vite
