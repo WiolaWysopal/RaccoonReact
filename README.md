@@ -528,3 +528,26 @@ Aplikację należy uruchomić standardowo w katalogu projektu wpisując poleceni
 ```bash
 npm start
 ```
+
+## `Props` w komponencie React
+
+`Props` (czyli _properties_) to sposób przekazywania danych do komponentów w React. Dzięki nim komponenty mogą być dynamiczne i wielokrotnego użytku.
+
+**Przykład komponentu props:**
+
+```js
+function Greeting(props) {
+  return <h1>Cześć, {props.name}!</h1>;
+}
+```
+
+Użycie komponentu z przekazanym propsem:
+
+```js
+<Greeting name="Anna" />
+<Greeting name="Jan" />
+```
+
+- Do komponentu `Greeting` przekazujemy wartość `name` jako `prop`.
+- Wewnątrz komponentu odwołujemy się do niej przez `props.name` (lub po destrukturyzacji: `name`).
+- Komponent renderuje spersonalizowaną treść.
