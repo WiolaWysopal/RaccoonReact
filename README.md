@@ -551,3 +551,22 @@ Użycie komponentu z przekazanym propsem:
 - Do komponentu `Greeting` przekazujemy wartość `name` jako `prop`.
 - Wewnątrz komponentu odwołujemy się do niej przez `props.name` (lub po destrukturyzacji: `name`).
 - Komponent renderuje spersonalizowaną treść.
+
+## Hook `UseState`
+
+`useState` to hook w React – specjalna funkcja, która pozwala komponentom funkcyjnym zapamiętywać dane (stan) i reagować na ich zmianę.
+
+Przykład:
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Licznik: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Zwiększ</button>
+    </div>
+  );
+}
+```
