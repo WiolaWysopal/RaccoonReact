@@ -472,3 +472,59 @@ Wygenerowane pliki znajdują się w katalogu `dist/`.
 ### `vendor`
 
 `vendor` to umowna nazwa `chunku` (porcji kodu), do którego Vite (i narzędzia bundlujące jak `Rollup` czy `Webpack`) wydzielają zewnętrzne biblioteki — takie jak `React`, `ReactDOM`, `lodash` itp. — czyli wszystko, co pochodzi z folderu `node_modules`.
+
+## Komponenty
+
+Komponent funkcyjny to podstawowy sposób tworzenia interfejsów w React. Może być zapisany jako **zwykła funkcja** lub **funkcja strzałkowa**.
+
+Przykład 1 - zwykła funkcja:
+
+```js
+function MyComponent() {
+  return <p>To jest statyczny tekst w komponencie.</p>;
+}
+```
+
+Przykład 2 - funkcja strzałkowa
+
+```js
+const MyComponent = () => {
+  return <p>To jest statyczny tekst w komponencie.</p>;
+};
+```
+
+### Eksportowanie komponentu
+
+Aby móc używać komponentu w innych plikach, należy go wyeksportować:
+
+```js
+export default MyComponent;
+```
+
+### Użycie komponentu
+
+1. Zaimportuj komponent w innym pliku (np. w `App.js`):
+
+```js
+import MyComponent from "./MyComponent";
+```
+
+2. Wywołaj go w JSX (czyli w kodzie HTML wewnątrz Reacta):
+
+```jsx
+function App() {
+  return (
+    <div>
+      <MyComponent />
+    </div>
+  );
+}
+```
+
+### Uruchomienie aplikacji
+
+Aplikację należy uruchomić standardowo w katalogu projektu wpisując polecenie:
+
+```bash
+npm start
+```
