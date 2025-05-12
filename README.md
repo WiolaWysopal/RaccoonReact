@@ -586,3 +586,37 @@ Integracja z API polega na użyciu określonego interfejsu (API) do komunikacji 
 `useEffect` to hook w React, który pozwala na wykonywanie efektów ubocznych (`side effects`) w funkcjonalnych komponentach. Efekty uboczne to operacje, które nie są bezpośrednio związane z renderowaniem komponentu, np. pobieranie danych z API, subskrypcje czy manipulacja DOM.
 
 W przykładzie `useEffect` jest używany do pobrania danych z API zaraz po załadowaniu komponentu. Dzięki pustej tablicy zależności (`[]`), funkcja w `useEffect` zostanie wywołana tylko raz, po pierwszym renderowaniu komponentu. Wewnątrz tej funkcji wykonujemy zapytanie do API i aktualizujemy stan komponentu danymi, które następnie są renderowane na stronie.
+
+## Bindowanie metod do instancji komponentu
+
+Bindowanie metod polega na przypisaniu kontekstu `this` do konkretnej instancji klasy, aby metody mogły poprawnie uzyskać dostęp do stanu (`state`) i właściwości (`props`) komponentu.
+
+### Bindowanie - przykład
+
+W konstruktorze komponentu należy wywołać `this.methodName.bind(this)` dla każdej metody, którą chcemy bindować. Można to zrobić dla metod, które są wywoływane w odpowiedzi na zdarzenia (np. kliknięcia przycisków). Przykład:
+
+```js
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+
+    // Bindowanie metody do instancji komponentu
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  // Metoda obsługująca kliknięcie
+  handleClick() {
+    this.setState({ count: this.state.count + 1 });
+  }
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleClick}>Kliknij mnie</button>
+        <p>Liczba kliknięć: {this.state.count}</p>
+      </div>
+    );
+  }
+}
+```
