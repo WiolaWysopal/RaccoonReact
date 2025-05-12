@@ -570,3 +570,19 @@ function Counter() {
   );
 }
 ```
+
+## Integracja `API` z `useEffect`
+
+### API (`Application Programming Interface`)
+
+API (Interfejs Programowania Aplikacji) to zbiór reguł i narzędzi, które pozwalają różnym aplikacjom na komunikację i wymianę danych. API umożliwia programistom wykorzystanie funkcji i danych udostępnianych przez inną aplikację lub usługę, bez potrzeby zagłębiania się w szczegóły implementacji tej aplikacji. Przykładem może być API umożliwiające pobieranie danych z serwisów internetowych, takich jak `jsonplaceholder`.
+
+### Integracja z API
+
+Integracja z API polega na użyciu określonego interfejsu (API) do komunikacji z zewnętrzną usługą lub systemem. W przykładzie pobierania danych z publicznego API `https://jsonplaceholder.typicode.com/posts`, aplikacja React łączy się z tym API, wysyła zapytanie HTTP i odbiera odpowiedź w formacie JSON. Następnie dane są wyświetlane w aplikacji. Proces ten jest realizowany przy użyciu metod takich jak `fetch` lub `axios`.
+
+### `UseEffect`
+
+`useEffect` to hook w React, który pozwala na wykonywanie efektów ubocznych (`side effects`) w funkcjonalnych komponentach. Efekty uboczne to operacje, które nie są bezpośrednio związane z renderowaniem komponentu, np. pobieranie danych z API, subskrypcje czy manipulacja DOM.
+
+W przykładzie `useEffect` jest używany do pobrania danych z API zaraz po załadowaniu komponentu. Dzięki pustej tablicy zależności (`[]`), funkcja w `useEffect` zostanie wywołana tylko raz, po pierwszym renderowaniu komponentu. Wewnątrz tej funkcji wykonujemy zapytanie do API i aktualizujemy stan komponentu danymi, które następnie są renderowane na stronie.
