@@ -620,3 +620,28 @@ class MyComponent extends React.Component {
   }
 }
 ```
+
+## `JSX`
+
+`JSX` (JavaScript XML) to składnia umożliwiająca pisanie znaczników HTML wewnątrz kodu JavaScript w React.
+
+### Cechy
+
+- Wygląda jak HTML, ale jest osadzony w JavaScript.
+- `JSX` kompiluje się do `React.createElement()`, czyli wywołań tworzących elementy Reacta.
+- Wszystko musi być zawarte w jednym głównym elemencie (np. <div>...</div>).
+- W `JSX` używa się `className` zamiast `class` (bo `class` to słowo kluczowe w `JS`).
+- Wewnątrz `JSX` można używać zmiennych w `{}`.
+
+Przykład:
+
+```jsx
+function WelcomeMessage() {
+  return (
+    <div>
+      <h1>Witaj na mojej stronie!</h1>
+      <p>Cieszymy się, że tu jesteś.</p>
+    </div>
+  );
+}
+```
