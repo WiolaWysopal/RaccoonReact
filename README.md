@@ -645,3 +645,69 @@ function WelcomeMessage() {
   );
 }
 ```
+
+## Komponenty dynamiczne
+
+Komponent dynamiczny w React to taki, którego zawartość lub struktura może się zmieniać w odpowiedzi na dane wejściowe lub zdarzenia. Komponenty te mogą wykorzystywać dane przekazywane za pomocą `props` i aktualizować swój stan (np. za pomocą `state`) w odpowiedzi na interakcje użytkownika.
+
+#### Przykład
+
+Mamy listę:
+
+```js
+const items = ["Jabłka", "Banany", "Pomarańcze"];
+```
+
+Komponent dynamiczny wykorzystujący tę listę:
+
+```jsx
+import React from "react";
+import PropTypes from "prop-types";
+
+function List(props) {
+  return (
+    <ul>
+      {props.items.map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
+List.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
+export default List;
+```
+
+## `PropTypes`
+
+`PropTypes` to biblioteka, która pozwala na walidację typów danych przekazywanych do komponentów w React. Pomaga to w zapewnieniu, że komponent otrzymuje dane w odpowiednim formacie, co zapobiega błędom w aplikacji i ułatwia jej rozwój.
+
+### Działanie
+
+- `PropTypes` sprawdzają, czy dane przekazywane do komponentu są zgodne z określonymi typami, np. czy lista zawiera tylko ciągi znaków (`PropTypes.arrayOf(PropTypes.string)`).
+
+- Dzięki temu deweloperzy mogą otrzymywać ostrzeżenia w konsoli podczas rozwoju, gdy dane mają niewłaściwy typ.
+
+#### Przykład
+
+```jsx
+import PropTypes from "prop-types";
+
+function List({ items }) {
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
+// Walidacja typu dla props
+List.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.string).isRequired, // Lista musi zawierać tylko ciągi znaków
+};
+```
