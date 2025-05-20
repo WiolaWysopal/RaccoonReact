@@ -711,3 +711,11 @@ List.propTypes = {
   items: PropTypes.arrayOf(PropTypes.string).isRequired, // Lista musi zawierać tylko ciągi znaków
 };
 ```
+
+## `HOC`:
+
+`HOC` (_Higher-Order Component_) to wzorzec projektowy w React, który polega na stworzeniu funkcji przyjmującej komponent jako argument i zwracającej nowy komponent z dodatkową funkcjonalnością. Przykład:
+
+```js
+const EnhancedComponent = withSomething(OriginalComponent);
+```
