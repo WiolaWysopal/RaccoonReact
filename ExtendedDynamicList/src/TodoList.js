@@ -29,23 +29,23 @@ const TodoList = () => {
 
   return (
     <div>
-      <h2>Lista zadań</h2>
+      <h2>To-Do List</h2>
 
       <form onSubmit={handleAddTodo}>
         <input
           type="text"
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
-          placeholder="Nowe zadanie..."
+          placeholder="New task..."
         />
-        <button type="submit">Dodaj</button>
+        <button type="submit">Add</button>
       </form>
 
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
             ✅ {todo.text}{" "}
-            <button onClick={() => handleDeleteTodo(todo.id)}>Usuń</button>
+            <button onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
           </li>
         ))}
       </ul>
