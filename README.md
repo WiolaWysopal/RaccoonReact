@@ -719,3 +719,54 @@ List.propTypes = {
 ```js
 const EnhancedComponent = withSomething(OriginalComponent);
 ```
+
+## `Refs` oraz `focus`
+
+Refs (skrót od _references_) to mechanizm Reacta umożliwiający bezpośredni dostęp do elementów `DOM` lub komponentów Reacta. Są używane wtedy, gdy musimy wykonać operacje poza typowym cyklem renderowania, np. ustawić fokus, przewinąć widok, odczytać rozmiar elementu, itp.
+
+Aby stworzyć referencję do elementu:
+
+```jsx
+import { useRef } from "react";
+
+const inputRef = useRef(null); // tworzymy referencję
+```
+
+Następnie przypisujemy ją do elementu JSX:
+
+```jsx
+<input ref={inputRef} type="text" />
+```
+
+Aby ustawić _focus_ (stan, w którym element jest aktywny) na polu tekstowym:
+
+```jsx
+inputRef.current.focus();
+```
+
+Zwykle umieszczamy to w funkcji wywoływanej po kliknięciu:
+
+```jsx
+const handleFocus = () => {
+  inputRef.current.focus();
+};
+```
+
+Przykład:
+
+```jsx
+function FocusInput() {
+  const inputRef = useRef(null);
+
+  const handleFocus = () => {
+    inputRef.current.focus();
+  };
+
+  return (
+    <div>
+      <input ref={inputRef} type="text" placeholder="Wpisz coś..." />
+      <button onClick={handleFocus}>Focus</button>
+    </div>
+  );
+}
+```
