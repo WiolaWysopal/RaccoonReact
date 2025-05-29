@@ -814,3 +814,42 @@ function App() {
 
 export default App;
 ```
+
+## `custom hooks`
+
+`Custom hooks` w React to funkcje pozwalające na wyodrębnienie i ponowne wykorzystanie logiki stanu oraz efektów w różnych komponentach. Dzięki nim możemy organizować kod w bardziej modularny i czytelny sposób, separując np. zarządzanie danymi czy interakcjami użytkownika od warstwy prezentacyjnej. Przykładem może być hook wykorzystujący useRef do przechowywania danych interakcji, takich jak historia kliknięć, co pozwala na zachowanie tych informacji bez wywoływania niepotrzebnych renderów, a jednocześnie umożliwia komponentom kontrolę nad tymi danymi i ich aktualizację. Przykład:
+
+```jsx
+// useClickCounter.js
+import { useState } from "react";
+
+// Definicja custom hooka useClickCounter
+function useClickCounter() {
+  const [count, setCount] = useState(0);
+
+  const increment = () => setCount((prev) => prev + 1);
+
+  return { count, increment };
+}
+
+export default useClickCounter;
+```
+
+```jsx
+// ClickCounter.js
+import React from "react";
+import useClickCounter from "./useClickCounter";
+
+function ClickCounter() {
+  const { count, increment } = useClickCounter();
+
+  return (
+    <div>
+      <p>Liczba kliknięć: {count}</p>
+      <button onClick={increment}>Kliknij mnie</button>
+    </div>
+  );
+}
+
+export default ClickCounter;
+```
