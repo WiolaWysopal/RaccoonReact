@@ -770,3 +770,47 @@ function FocusInput() {
   );
 }
 ```
+
+## `useImperativeHandle`
+
+Hook `useImperativeHandle` pozwala komponentom podrzędnym kontrolować, które wartości i metody są udostępniane komponentom nadrzędnym przez referencje (ref). Jest szczególnie przydatny w połączeniu z `forwardRef`, gdy chcemy ukryć wewnętrzne szczegóły implementacji i wystawić tylko wybrane funkcje, np. do obsługi programowego focusowania, resetowania formularza lub innych akcji. Dzięki temu możliwe jest tworzenie bardziej hermetycznych, ale jednocześnie elastycznych komponentów. Przykład:
+
+```jsx
+// InputField.js
+import React, { useRef, useImperativeHandle, forwardRef } from "react";
+
+const InputField = forwardRef((props, ref) => {
+  const inputRef = useRef();
+
+  useImperativeHandle(ref, () => ({
+    focusInput: () => {
+      inputRef.current.focus();
+    },
+  }));
+
+  return <input ref={inputRef} type="text" placeholder="Wpisz coś..." />;
+});
+
+export default InputField;
+```
+
+```jsx
+// App.js
+import React, { useRef } from "react";
+import InputField from "./InputField";
+
+function App() {
+  const inputRef = useRef();
+
+  return (
+    <div>
+      <InputField ref={inputRef} />
+      <button onClick={() => inputRef.current.focusInput()}>
+        Ustaw fokus na input
+      </button>
+    </div>
+  );
+}
+
+export default App;
+```
