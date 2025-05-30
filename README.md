@@ -936,3 +936,8 @@ export default SyncAsyncExample;
 | Wykonanie    | Natychmiastowe        | Z opóźnieniem / po zakończeniu `await` |
 | Przykład     | `setSyncMessage(...)` | `await fetch(...)`                     |
 | Zastosowania | Proste akcje          | API, odczyt pliku, timeout             |
+
+## `Debouncing` oraz `throttling`
+
+- `Debounce` – opóźnia wykonanie funkcji do momentu, aż użytkownik przestanie pisać na określony czas (np. 500 ms).
+- `Throttle` – ogranicza częstotliwość wykonywania funkcji (np. max raz na 1000 ms), nawet jeśli użytkownik pisze szybciej.
