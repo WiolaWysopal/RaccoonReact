@@ -853,3 +853,86 @@ function ClickCounter() {
 
 export default ClickCounter;
 ```
+
+## Synchronizacja zdarzeń - synchronicznie vs asynchronicznie
+
+### 1. Synchroniczna obsługa zdarzeń
+
+- Działa natychmiastowo.
+- Kod wykonywany jest liniowo, bez oczekiwania.
+- Dobre do prostych operacji, np. aktualizacja stanu po kliknięciu.
+
+### 2. Asynchroniczna obsługa zdarzeń
+
+- Wykonuje się z opóźnieniem (np. `setTimeout`, `fetch`, `axios`, `async/await`).
+- Umożliwia obsługę zdarzeń wymagających czasu, np. pobranie danych z serwera.
+- Wymaga mechanizmów takich jak `Promise` lub `async/await`.
+
+### Przykład: Komponent React z obsługą synchroniczną i asynchroniczną
+
+```jsx
+// SyncAsyncExample.js
+import React, { useState } from "react";
+
+function SyncAsyncExample() {
+  const [syncMessage, setSyncMessage] = useState("Brak akcji");
+  const [asyncMessage, setAsyncMessage] = useState("Brak akcji");
+
+  // Synchroniczna reakcja na zdarzenie
+  const handleSyncClick = () => {
+    setSyncMessage("Kliknięcie przetworzone synchronicznie!");
+  };
+
+  // Asynchroniczna reakcja na zdarzenie z opóźnieniem
+  const handleAsyncClick = async () => {
+    setAsyncMessage("Czekam na dane...");
+
+    // Symulacja opóźnienia lub pobierania danych z serwera
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    // Można tu użyć fetch lub axios
+    // const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+    // const data = await response.json();
+
+    setAsyncMessage("Dane odebrane asynchronicznie!");
+  };
+
+  return (
+    <div className="p-4">
+      <h2 className="text-xl font-bold mb-4">
+        Synchroniczna vs Asynchroniczna Obsługa Zdarzeń
+      </h2>
+
+      <div className="mb-6">
+        <button
+          onClick={handleSyncClick}
+          className="px-4 py-2 bg-blue-500 text-white rounded"
+        >
+          Synchroniczne kliknięcie
+        </button>
+        <p className="mt-2">Wynik: {syncMessage}</p>
+      </div>
+
+      <div>
+        <button
+          onClick={handleAsyncClick}
+          className="px-4 py-2 bg-green-500 text-white rounded"
+        >
+          Asynchroniczne kliknięcie
+        </button>
+        <p className="mt-2">Wynik: {asyncMessage}</p>
+      </div>
+    </div>
+  );
+}
+
+export default SyncAsyncExample;
+```
+
+### 4. Podsumowanie
+
+| Cecha        | Synchroniczna obsługa | Asynchroniczna obsługa                 |
+| ------------ | --------------------- | -------------------------------------- |
+| Wykonanie    | Natychmiastowe        | Z opóźnieniem / po zakończeniu `await` |
+| Przykład     | `setSyncMessage(...)` | `await fetch(...)`                     |
+| Zastosowania | Proste akcje          | API, odczyt pliku, timeout             |
