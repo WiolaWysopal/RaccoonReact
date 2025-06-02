@@ -941,3 +941,48 @@ export default SyncAsyncExample;
 
 - `Debounce` – opóźnia wykonanie funkcji do momentu, aż użytkownik przestanie pisać na określony czas (np. 500 ms).
 - `Throttle` – ogranicza częstotliwość wykonywania funkcji (np. max raz na 1000 ms), nawet jeśli użytkownik pisze szybciej.
+
+## Routing w React
+
+W aplikacjach React routing umożliwia tworzenie wielu widoków (tzw. stron) i nawigację między nimi bez przeładowania strony. Najpopularniejszą biblioteką do routingu jest [`react-router-dom`](https://reactrouter.com/).
+
+---
+
+### Instalacja
+
+Aby zainstalować bibliotekę:
+
+```bash
+npm install react-router-dom
+```
+
+| Komponent       | Opis                                                              |
+| --------------- | ----------------------------------------------------------------- |
+| `BrowserRouter` | Główny komponent otaczający całą aplikację.                       |
+| `Routes`        | Zbiór tras – nowy sposób definiowania ścieżek od React Router v6. |
+| `Route`         | Definicja pojedynczej trasy i przypisanego do niej komponentu.    |
+| `Link`          | Nawigacja między trasami bez przeładowania strony.                |
+| `Navigate`      | Komponent do programowego przekierowania.                         |
+
+### Przykład
+
+```jsx
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <nav>
+        <Link to="/">Strona główna</Link> | <Link to="/about">O nas</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+```
