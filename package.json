@@ -40,5 +40,8 @@
     "rules": {
       "local/camelcase-variable-names": "error"
     }
+  },
+  "dependencies": {
+    "react-router-dom": "^7.6.2"
   }
 }
