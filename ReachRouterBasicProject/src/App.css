@@ -1,0 +1,123 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  background-color: aliceblue;
+}
+
+h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav {
+  height: fit-content;
+  padding: 0.5rem;
+  background-color: rgb(215, 226, 233);
+}
+
+a {
+  text-decoration: none;
+  margin: 1rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  color: black;
+}
+
+a:hover {
+  background-color: rgb(183, 189, 193);
+  transition-duration: 1s;
+}
+
+.mainpagecontainer,
+.aboutuscontainer,
+.contactcontainer {
+  width: 90%;
+  width: 70rem;
+  height: 25rem;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.5s;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Kolory tła dla każdego kontenera */
+.mainpagecontainer {
+  background-color: rgb(221, 202, 230);
+}
+
+.mainpagecontainer:hover {
+  background-color: rgb(164, 147, 172);
+}
+
+.aboutuscontainer {
+  background-color: rgb(202, 211, 230);
+}
+
+.aboutuscontainer:hover {
+  background-color: rgb(168, 165, 195);
+}
+
+.contactcontainer {
+  background-color: rgb(202, 230, 207);
+}
+
+.contactcontainer:hover {
+  background-color: rgb(165, 195, 167);
+}
+
+@media (max-width: 768px) {
+  .mainpagecontainer,
+  .aboutuscontainer,
+  .contactcontainer {
+    height: 20rem;
+    width: 15rem;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+  }
+}
