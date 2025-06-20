@@ -1,0 +1,140 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.login-wrapper {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-wrapper nav {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.components-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  font-size: 1.1rem;
+  font-style: bold;
+}
+
+a {
+  text-decoration: none;
+  margin: 2rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+}
+
+label {
+  font-size: 1.2rem;
+  margin: 0.5rem;
+}
+
+input {
+  font-size: 1rem;
+  margin: 0.5rem;
+}
+
+/* DARK / LIGHT MODE */
+
+body.light {
+  background-color: white;
+  color: black;
+}
+
+nav {
+  width: inherit;
+  margin: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+body.dark {
+  background-color: black;
+  color: white;
+}
+
+input {
+  background-color: inherit;
+  color: inherit;
+}
+
+body.light h2,
+body.light label,
+body.light a {
+  color: black;
+}
+
+body.dark h2,
+body.dark label,
+body.dark a {
+  color: white;
+}
+
+body.dark button {
+  background-color: rgb(80, 80, 120);
+  color: white;
+  border-color: white;
+}
+
+body.light button {
+  background-color: rgb(116, 167, 106);
+  color: black;
+}
