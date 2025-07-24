@@ -1,0 +1,2 @@
+1. backend: node server/index.js
+2. frontend: npm start
