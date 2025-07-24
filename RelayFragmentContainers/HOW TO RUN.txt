@@ -1,0 +1,18 @@
+Jak uruchomić:
+
+1. relay: npm run relay
+2. backend: node backend/index.js
+3. frontend: npm start
+
+W przypadku gdy port jest zajęty:
+
+1. Wpisz komendę netstat -ano | findstr :[nr portu]
+
+2. W konsoli otrzymasz następujące dane: 
+TCP    0.0.0.0:[nr portu]    0.0.0.0:0    LISTENING    [PID procesu]
+
+3. Wpisz komendę taskkill /PID [PID] /F aby zamknąć proces
+
+-----------------------------------
+
+npm ci - uberwersja npm install; robi dokładnie to samo co npm install, tylko jeszcze usuwa node_modules

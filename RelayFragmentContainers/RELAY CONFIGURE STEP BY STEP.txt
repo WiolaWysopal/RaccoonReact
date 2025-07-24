@@ -1,0 +1,37 @@
+1. Zainstaluj paczki react-relay i relay-compiler komendą:
+	`npm install --save react-relay && npm install --save-dev relay-compiler`
+
+2. Utwórz plik schema.graphql w katalogu głównym projektu.
+
+3. Wypełnij plik `schema.graphql` poprawnym schematem GraphQL (zawierającym typ Query).
+
+4. Utwórz plik `relay.config.json` obok `package.json`.
+
+5. Wpisz do `relay.config.json` konfigurację:
+	`
+	{
+  		"src": "./src",
+  		"schema": "./schema.graphql",
+  		"language": "javascript"
+	}
+	`
+6. Upewnij się, że masz katalog src, który zawiera kod aplikacji.
+
+7. Dodaj skrypt do sekcji "scripts" w package.json: 
+`{"relay": "relay-compiler"}`
+
+8. Uruchom Relay Compiler komendą npm run relay.
+
+9. Sprawdź, czy Relay wygenerował pliki __generated__ w katalogu src.
+
+10. Jeśli pojawi się błąd, sprawdź, czy schema.graphql zawiera poprawne typy i nie ma literówek.
+
+
+-------------------------------------------------------------------------------------------
+                                                                                          |
+	ABY WYGENEROWAĆ SCHEMA.GRAPHQL BEZPOŚREDNIO Z SERVERA, UŻYJ TEJ KOMENDY:          |
+	(instalacja niezbędnego narzędzia: `npm install --save-dev get-graphql-schema`)   |
+	`npx get-graphql-schema http://localhost:4000/graphql > schema.graphql`           |
+											  |
+-------------------------------------------------------------------------------------------
+
