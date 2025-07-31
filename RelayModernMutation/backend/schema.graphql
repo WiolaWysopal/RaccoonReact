@@ -1,0 +1,17 @@
+directive @specifiedBy(
+  url: String!
+) on SCALAR
+
+type Mutation {
+  addPost(content: String): Post
+}
+
+type Post {
+  id: String!
+  content: String
+}
+
+type Query {
+  posts: [Post]
+}
+
