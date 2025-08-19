@@ -2,3 +2,5 @@ node_modules/
 .prettierignore
 **/dist/
 .*/ 
+!.github/
+!.github/workflows/
