@@ -1,6 +1,6 @@
-describe("Przykładowy test", () => {
-  it("Otwiera stronę i sprawdza tytuł", () => {
-    cy.visit("https://example.com");
-    cy.title().should("include", "Example");
+describe("Sample test", () => {
+  it("opens example page", () => {
+    cy.visit("https://example.cypress.io/");
+    cy.contains("Kitchen Sink");
   });
 });
