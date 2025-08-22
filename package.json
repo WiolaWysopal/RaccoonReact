@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/WiolaWysopal/RaccoonReact#readme",
   "devDependencies": {
+    "cypress": "^15.0.0",
     "eslint": "^9.25.1",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
