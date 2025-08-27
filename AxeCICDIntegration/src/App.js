@@ -7,8 +7,10 @@ function App() {
   return (
     <div className="App">
       <HelloComponent />
-      <InfoComponent />
-      <HowToIntegrateComponent />
+      <main>
+        <InfoComponent />
+        <HowToIntegrateComponent />
+      </main>
     </div>
   );
 }
