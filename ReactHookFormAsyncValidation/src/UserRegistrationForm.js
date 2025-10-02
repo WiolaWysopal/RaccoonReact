@@ -21,7 +21,7 @@ export default function UserRegistrationForm() {
 
   const onSubmit = (data) => {
     console.log("Form submitted:", data);
-    alert("Rejestracja zakończona pomyślnie!");
+    alert("Registration completed successfully!");
   };
 
   return (
@@ -32,13 +32,13 @@ export default function UserRegistrationForm() {
         <div style={{ marginBottom: "15px" }}>
           <input
             {...register("username", {
-              required: "USER NAME REQUIRED",
+              required: "USERNAME REQUIRED",
               validate: async (value) => {
                 const available = await checkUsernameAvailability(value);
                 return available || "THIS USERNAME IS NOT AVAILABLE";
               },
             })}
-            placeholder="User name"
+            placeholder="Username"
           />
           {errors.username && (
             <p style={{ color: "red" }}>{errors.username.message}</p>
