@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* pełna wysokość ekranu */
+}
+
+main {
+  flex: 1; /* Main zajmuje całą wolną przestrzeń */
+}

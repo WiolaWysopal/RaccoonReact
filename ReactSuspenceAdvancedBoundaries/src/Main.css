@@ -1,0 +1,10 @@
+.main {
+  min-height: calc(100vh - 60px); /* wysokość ekranu minus header (np. 60px) */
+  display: flex;
+  align-items: center; /* wyśrodkowanie w pionie */
+  justify-content: center; /* wyśrodkowanie w poziomie */
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: #f9f9f9;
+  color: #333;
+}
