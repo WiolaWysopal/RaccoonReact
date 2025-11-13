@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Test JWT + Refresh Token</h2>
+
+<label>Username: <input type="text" id="usernameInput" value="Anna"></label><br><br>
+
+<button id="loginButton">Zaloguj / Wygeneruj tokeny</button>
+<button id="secretButton">Sprawdź chroniony endpoint</button>
+<button id="refreshButton">Odnow access token</button>
+<button id="logoutButton">Wyloguj</button>
+
+<p id="output"></p>
+
+<script>
+let accessTokenVariable = '';
+let refreshTokenVariable = '';
+
+const outputVariable = document.getElementById('output');
+
+// Logowanie / generowanie tokenów
+document.getElementById('loginButton').addEventListener('click', () => {
+    const usernameVariable = document.getElementById('usernameInput').value;
+
+    fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: usernameVariable })
+    })
+    .then(res => res.json())
+    .then(data => {
+        accessTokenVariable = data.accessToken;
+        refreshTokenVariable = data.refreshToken;
+        outputVariable.innerText = `Access Token: ${accessTokenVariable}\nRefresh Token: ${refreshTokenVariable}`;
+        console.log('Access Token:', accessTokenVariable);
+        console.log('Refresh Token:', refreshTokenVariable);
+    })
+    .catch(err => console.error(err));
+});
+
+// Wywołanie chronionego endpointa
+document.getElementById('secretButton').addEventListener('click', () => {
+    if (!accessTokenVariable) {
+        outputVariable.innerText = 'Najpierw wygeneruj access token!';
+        return;
+    }
+
+    fetch('http://localhost:3000/secret', {
+        headers: { 'Authorization': 'Bearer ' + accessTokenVariable }
+    })
+    .then(res => res.json())
+    .then(data => {
+        outputVariable.innerText = 'Odpowiedź z /secret:\n' + JSON.stringify(data);
+        console.log('Odpowiedź z /secret:', data);
+    })
+    .catch(err => console.error(err));
+});
+
+// Odnawianie access tokena przy użyciu refresh tokena
+document.getElementById('refreshButton').addEventListener('click', () => {
+    if (!refreshTokenVariable) {
+        outputVariable.innerText = 'Najpierw wygeneruj refresh token!';
+        return;
+    }
+
+    fetch('http://localhost:3000/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: refreshTokenVariable })
+    })
+    .then(res => res.json())
+    .then(data => {
+        accessTokenVariable = data.accessToken;
+        outputVariable.innerText = `Nowy access token:\n${accessTokenVariable}`;
+        console.log('Nowy access token:', accessTokenVariable);
+    })
+    .catch(err => console.error(err));
+});
+
+// Wylogowanie (usunie refresh token)
+document.getElementById('logoutButton').addEventListener('click', () => {
+    if (!refreshTokenVariable) {
+        outputVariable.innerText = 'Nie masz refresh tokena!';
+        return;
+    }
+
+    fetch('http://localhost:3000/logout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: refreshTokenVariable })
+    })
+    .then(res => res.json())
+    .then(data => {
+        accessTokenVariable = '';
+        refreshTokenVariable = '';
+        outputVariable.innerText = `Wylogowano. ${JSON.stringify(data)}`;
+        console.log(data);
+    })
+    .catch(err => console.error(err));
+});
+</script>
+</body>
+</html>
