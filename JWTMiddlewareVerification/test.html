@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Test JWT Middleware</h2>
+<button id="runTestButton">Wygeneruj token i sprawdź /secret</button>
+
+<script>
+document.getElementById('runTestButton').addEventListener('click', () => {
+
+  // POST /login, żeby dostać token
+  fetch('http://localhost:3000/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username: 'Anna' })
+  })
+  .then(resVariable => resVariable.json())
+  .then(dataVariable => {
+    console.log('Token wygenerowany:');
+    console.log(dataVariable.token);
+
+    // GET /secret z tokenem
+    return fetch('http://localhost:3000/secret', {
+      headers: { 'Authorization': 'Bearer ' + dataVariable.token }
+    });
+  })
+  .then(resVariable => resVariable.json())
+  .then(dataVariable => console.log('Odpowiedź z /secret:', dataVariable))
+  .catch(errVariable => console.error(errVariable));
+});
+</script>
+</body>
+</html>
